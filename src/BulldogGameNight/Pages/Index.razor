@@ -1,0 +1,23 @@
+@page "/"
+@inject NavigationManager Navigation
+
+<PageTitle>Game Night</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+
+    <MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Game Night</MudText>
+
+    <MudGrid Justify="Justify.Center">
+        <MudButton Class="d-flex-inline ma-4" Variant="Variant.Filled" Color="Color.Surface" OnClick="@(() => Navigation.NavigateTo("/create"))">Create</MudButton>
+        <MudButton Class="d-flex-inline ma-4" Variant="Variant.Filled" Color="Color.Surface" OnClick="@(() => Navigation.NavigateTo("/join"))">Join</MudButton>
+    </MudGrid>
+
+</MudContainer>
+
+
+
+@*<MudAlert Severity="Severity.Normal">You canasdasda find documentation and examples on our website here: <MudLink Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink></MudAlert>*@
+
+
+@code {
+}

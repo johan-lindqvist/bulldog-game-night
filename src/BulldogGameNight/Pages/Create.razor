@@ -1,0 +1,32 @@
+@page "/create"
+@inject NavigationManager Navigation
+
+<PageTitle>Game Night - Create</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+
+    <MudGrid Justify="Justify.FlexStart">
+        <MudItem md="12">
+            <MudTextField Class="d-flex ma-4" @bind-Value="GameName" Label="Game name" Variant="Variant.Text" Margin="Margin.Dense" />
+            <MudSelect @bind-Value="Challenge" Class="d-flex ma-4" T="string" Label="Challenge">
+                <MudSelectItem Value="@("Cappuccino")" />
+                <MudSelectItem Value="@("Cafe Latte")" />
+                <MudSelectItem Value="@("Espresso")" />
+            </MudSelect>
+        </MudItem>
+            <MudTextField T="int" InputType="InputType.Number" Class="d-flex mx-8 my-4" @bind-Value="NumberOfTeams" Label="Number of teams" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField>
+            <MudTextField T="int" InputType="InputType.Number" Class="d-flex mx-8 my-4" @bind-Value="PlayersPerTeam" Label="Players per team" Variant="Variant.Text" Margin="Margin.Dense"></MudTextField>
+    </MudGrid>
+
+    <MudGrid Justify="Justify.Center">
+        <MudButton Class="d-flex-inline ma-4 mt-16" Variant="Variant.Filled" Color="Color.Surface" OnClick="@(() => Navigation.NavigateTo("/lobby"))">Create game</MudButton>
+    </MudGrid>
+
+</MudContainer>
+
+@code {
+    public string GameName { get; set; }
+    public int PlayersPerTeam { get; set; }
+    public int NumberOfTeams { get; set; }
+    public string Challenge { get; set; }
+}

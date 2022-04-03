@@ -1,0 +1,78 @@
+@page "/lobby"
+
+<PageTitle>Game Night - Lobby</PageTitle>
+
+
+<MudAppBar Dense="true" Color="Color.Transparent" Fixed="true">
+    <MudText Class="pr-4">Lobby</MudText>
+
+    <MudText Class="pl-12">Code:</MudText>
+
+    <MudItem Class="pl-4">
+      <MudInput @bind-Value="JoinCode" T="string" ReadOnly="true" Label="Join code" Variant="Variant.Text" InputType="@Input" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ToggleCode" AdornmentAriaLabel="Show join code" />
+    </MudItem>
+    <MudSpacer />
+
+    <MudButton Variant="Variant.Filled" Color="Color.Surface">Leave game</MudButton>
+</MudAppBar>
+
+<MudContainer MaxWidth="MaxWidth.Large">
+
+    @*<MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Lobby</MudText>*@
+
+    <MudGrid Justify="Justify.FlexStart">
+        <MudItem xs="6" md="6">
+            <MudPaper MaxWidth="50%">
+                <MudList DisablePadding>
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="AdmiralBulldog" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 2" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 3" />
+                    <MudListItem Icon="@Icons.Filled.PersonOff" Text="Player 4" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 5" />
+                    <MudListItem Icon="@Icons.Filled.PersonOff" Text="Player 6" />
+                </MudList>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="6" md="6">
+            <MudPaper MaxWidth="50%">
+                <MudList DisablePadding>
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="AdmiralBulldog" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 2" />
+                    <MudListItem Icon="@Icons.Filled.PersonOff" Text="Player 3" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 4" />
+                    <MudListItem Icon="@Icons.Filled.PersonOutline" Text="Player 5" />
+                    <MudListItem Icon="@Icons.Filled.PersonOff" Text="Player 6" />
+                </MudList>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid Justify="Justify.Center">
+        <MudButton Class="d-flex-inline ma-4 mt-16" Variant="Variant.Filled" Color="Color.Surface">New round</MudButton>
+    </MudGrid>
+
+</MudContainer>
+
+@code {
+    public string JoinCode { get; set; } = "asdf12345pepelaff";
+    bool isShow;
+    InputType Input = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    void ToggleCode()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            Input = InputType.Password;
+        }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            Input = InputType.Text;
+        }
+    }
+}

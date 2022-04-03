@@ -1,0 +1,24 @@
+@page "/join"
+@inject NavigationManager Navigation
+
+<PageTitle>Game Night - Join</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+
+    <MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Join game</MudText>
+
+    <MudGrid Justify="Justify.Center">
+        <MudItem md="3">
+            <MudTextField Class="d-flex ma-4" @bind-Value="Code" Label="Code" Variant="Variant.Text" Margin="Margin.Dense" />
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid Justify="Justify.Center">
+        <MudButton Class="d-flex-inline ma-4 mt-16" Variant="Variant.Filled" Color="Color.Surface" OnClick="@(() => Navigation.NavigateTo("/lobby"))">Join game</MudButton>
+    </MudGrid>
+
+</MudContainer>
+
+@code {
+    public string Code { get; set; }
+}
